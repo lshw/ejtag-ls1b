@@ -1,0 +1,12 @@
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+waitreg 1 0x5a5a5a5a
+waitfacc
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put /work/projects/ls1g+/linux-kernel/vmlinux 0xa1000000
+setconfig flash.type st25p64
+erase_area 0x100000 0xafffff 0x10000
+program 0xa1000000 0x100000 0x900000
+q

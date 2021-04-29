@@ -1,0 +1,11 @@
+echo_on
+#maybe need set flash width and speed
+m4 0xbf000000 0x0c4002d4
+m4 0xbf000004 0x209800c6
+setenv flash sst8
+erase
+msleep 2000
+put gzrom.bin 0xa0200000
+program 0xa0200000 0xbfc00000 0x80000
+cont
+

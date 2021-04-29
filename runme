@@ -1,0 +1,66 @@
+#!/bin/sh
+DIR=$(dirname $0)
+echo $0 --help for help
+
+case "$1" in
+"--help")
+	cat <<AAA
+	--help 
+	-d  print out debug info
+
+	This program support read command from stdin or a file use redirection.
+	<config program bios to original one
+
+# ./runme
+
+-h
+h         :h                             :show this help
+q         :q                             :quit this shell
+expr      :expr                          :expr
+echo      :cmds                          :echo
+echo_on   :                              :echo on
+echo_off  :                              :echo off
+mems      :mems                          :select memory
+d1        :d1 [addr] [count]             :dump memory (byte)
+d2        :d2 [addr] [count]             :dump memory (half word)
+d4        :d4 [addr] [count]             :dump memory (word)
+d8        :d8 [addr] [count]             :modify memory (double word)
+m1        :m1 addr                       :modify memory (byte)
+m2        :m2 addr                       :modify memory (half word)
+m4        :m4 addr                       :modify memory (word)
+m8        :m8 addr                       :modify memory (double word)
+set       :set [reg] [val]               :set regs
+press enter to continue...
+
+save      :save                          :save regs
+restore   :restore                       :restore regs
+cp0s      :cp0s                          :cp0 regs
+cont      :cont                          :quit jtag and cont
+goback    :goback                        :go back to 0xff200200
+put       :put                           :put filename address
+sput      :sput                          :sput filename address
+fput      :fput                          :fput filename address
+fputflash :fputflash                     :fputflash filename address
+get       :get                           :get filename address size
+fget      :fget                          :fget filename address size
+sget      :sget                          :sget filename address size
+setenv    :setenv [env] [val]            :set environment
+msleep    :msleep ms                     :sleep ms
+run       :run                           :run filename
+source    :source                        :source filename
+press enter to continue...
+
+program   :program ramaddr flashaddr size :program  address
+erase     :erase                         :erase whole chip
+gdbserver :gdbserver                     :gdbserver
+
+-                                                           
+
+AAA
+;;
+
+*)
+${DIR}//lib/ld-linux.so.2 --library-path  ${DIR}/lib ${DIR}/ejtag_debug_usb "$@" 
+;;
+esac;
+

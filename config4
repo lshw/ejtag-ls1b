@@ -1,0 +1,18 @@
+echo_on
+setconfig flash.type st25vf080
+spiroms 
+d1 0 10
+erase_area 0 0x7ffff 0x10000
+erase
+msleep 2000
+
+spiroms
+
+d1 0 10
+
+put gzrom.bin 0xa1000000
+program 0xa1000000 0 0x60000
+msleep 2000
+spiroms
+d1 0 10
+#q

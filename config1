@@ -1,0 +1,8 @@
+echo_on
+echo boot kernel demo
+putelf /work/ls232/linux-kernel/vmlinux
+karg console=ttyS0,115200 rdinit=/sbin/init initcall_debug=1
+cont
+
+
+

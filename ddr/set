@@ -1,0 +1,4 @@
+ddr2_config ddr2.txt.old
+m4 0xaffffe30 0
+ddr2_config ddr2.txt
+

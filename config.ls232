@@ -1,0 +1,15 @@
+echo_on
+echo ls232 flash program demo
+#maybe need set flash width and speed
+waitreg 1 0x5a5a5a5a
+waitfacc
+m4 0xbf000000 0x0c4002d4 
+m4 0xbf000004 0x209800c6
+memtest 0xa0000000 0xa0000100
+setconfig flash.type sst8
+erase
+msleep 2000
+put gzrom.bin 0xa0200000
+program 0xa0200000 0xbfc00000 0x80000
+q
+

@@ -1,0 +1,19 @@
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+
+ddr2_config ./ddr2(16bit).txt
+
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+
+put gzrom.bin 0xa1000000
+setconfig flash.type st25vf080
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+

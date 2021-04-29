@@ -1,0 +1,7 @@
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+waitreg 1 0x5a5a5a5a
+waitfacc
+set
+#ddr2_config ./ddr2.txt

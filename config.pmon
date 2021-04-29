@@ -1,0 +1,35 @@
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+
+
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+
+
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q

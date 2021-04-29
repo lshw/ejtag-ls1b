@@ -1,0 +1,9 @@
+echo_on
+set
+#maybe need set flash width and speed
+m4 0xbf000000 0x0c4002d4 
+m4 0xbf000004 0x209800c6
+put gzrom.bin 0x81000000
+set :pc 0x81000000
+cont
+

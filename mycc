@@ -1,0 +1,64 @@
+#!/bin/bash
+gcc_c=0;
+gcc_o=0;
+for i in "$@";
+do
+case $i in
+-c)
+gcc_c=1;
+;;
+-o)
+gcc_o=1;
+;;
+*.c)
+filename=$i;
+;;
+*)
+;;
+esac
+done
+if [ "$gcc_c" = "0" ];then
+eval "gcc $@"
+exit $?
+fi
+
+newcmd="";
+
+for((i=1;i<=$#;i++));
+do
+arg=$(eval echo \${$i});
+case $arg in
+-c)
+newcmd="$newcmd -E";
+;;
+-o)
+((i++));
+;;
+*)
+newcmd="$newcmd $arg";
+;;
+esac
+done
+
+echo "gcc $newcmd |perl mycpp.pl > ${filename/.c/.tmp.c}" 
+eval "gcc $newcmd |perl mycpp.pl > ${filename/.c/.tmp.c}" || exit -1
+
+newcmd=""
+for i in "$@";
+do
+case $i in
+*.c)
+newcmd="$newcmd  ${filename/.c/.tmp.c}";
+;;
+*)
+newcmd="$newcmd $i";
+;;
+esac
+done
+
+if [ "$gcc_o" = "0" ];then
+newcmd="$newcmd -o ${filename/.c/.o}"
+fi
+echo "gcc -include include/mysymbol.h $newcmd"
+eval "gcc -include include/mysymbol.h $newcmd"
+

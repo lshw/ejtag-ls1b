@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+$pwd=`pwd`;
+chomp $pwd;
+my %h;
+open(F,qq(ldd $ARGV[0] |grep -v $pwd|));
+while (<F>)
+{
+@F=split ' ',$_;
+if($F[0]!~m#^/#){
+$name=$F[2];
+} else {
+$name=$F[0];
+}
+
+next if(substr($name,0,1) eq '(');
+
+$h{$name}=1;
+
+if( -l $name)
+{
+($base=$name)=~s#[^/]*$##;
+$h{ $base . readlink($name) }=1;
+}
+}
+
+print qq(tar rf /tmp/1.tar $ARGV[0] \n);
+
+
+
+for (keys %h)
+{
+print qq(tar rf /tmp/1.tar $_ \n);
+}
+
+open F,qq(>runme);
+print F <<"AAA"
+D=\$(dirname \$0)
+\$D/lib/ld-linux.so.2 --library-path \$D/lib:\$D/usr/lib  ./$ARGV[0] \$@
+AAA
+;
+
+close F;
+
+chmod 0777, qq(runme);
+
+print qq(tar rf /tmp/1.tar ./runme \n);

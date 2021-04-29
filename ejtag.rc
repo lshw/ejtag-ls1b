@@ -1,0 +1,1504 @@
+putelf vmlinux 
+karg console=ttyS0,115200 root=/dev/mtdblock1 rw rootfstype=yaffs2 init=/linuxrc video=ls1bfb:800x600-16@60
+cont
+putelf vmlinux 
+karg console=ttyS0,115200 root=/dev/mtdblock1 rw rootfstype=yaffs2 init=/linuxrc video=ls1bfb:800x600-16@60
+cont
+putelf vmlinux 
+karg console=ttyS0,115200 root=/dev/mtdblock1 rw rootfstype=yaffs2 init=/linuxrc video=ls1bfb:800x600-16@60
+cont
+putelf vmlinux 
+karg console=ttyS0,115200 root=/dev/mtdblock1 rw rootfstype=yaffs2 init=/linuxrc video=ls1bfb:800x600-16@60
+karg console=ttyS0,115200 root=/dev/mtdblock1 rw rootfstype=yaffs2 init=/linuxrc video=ls1bfb:1024x768-16@60
+cont
+q
+set
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x04
+#m4 0xbfe78034 0x92292a00
+#msleep 3000
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom-uart5.bin 0xa1000000
+setconfig flash.type st25vf080
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+set
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x04
+#m4 0xbfe78034 0x92292a00
+#msleep 3000
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom-uart5.bin 0xa1000000
+setconfig flash.type st25vf080
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+set
+set
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+putelf gzrom
+cont
+cont
+putelf gzrom
+cont
+putelf gzrom
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf gzrom
+cont
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+loop 20 m4 0xbfd00424 0x110000
+ddr2_config ./ddr2.txt
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+ddr2_config ./ddr2.txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+loop 20 m4 0xbfd00424 0x0
+ddr2_config ./ddr2.txt
+loop 20 m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+#loop 20 m4 0xbfd00424 0x0
+ddr2_config ./ddr2.txt
+loop 20 m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+m4 0xbfe78030 0x8800
+m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+msleep 3000
+#loop 20 m4 0xbfd00424 0x0
+ddr2_config ./ddr2.txt
+loop 20 m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+setconfig flash.type st25vf080
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+set
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+m4 0xbfd00424 0x0
+#ddr2_config ./ddr2.txt
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+setconfig flash.type st25vf080
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+#m4 0xbfd00424 0x0
+#echo_on
+#echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 10 m4 0xbfe78030 0x4
+#m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+#m4 0xbfd00424 0x110000
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa5000000
+program 0xa1000000 0 0x60000
+q
+#m4 0xbfd00424 0x0
+#echo_on
+#echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 10 m4 0xbfe78030 0x4
+#m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+#m4 0xbfd00424 0x110000
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+setconfig flash.type st25vf080
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+#m4 0xbfd00424 0x0
+#echo_on
+#echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 10 m4 0xbfe78030 0x4
+#m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+#m4 0xbfd00424 0x110000
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+setconfig flash.type win25x64
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+#m4 0xbfd00424 0x0
+#echo_on
+#echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 10 m4 0xbfe78030 0x4
+#m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+#m4 0xbfd00424 0x110000
+m4 0xbfd00424 0x00
+echo_on
+setconfig usb_ejtag.put_speed 0x400
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa5000000
+put gzrom.bin 0xa1000000
+setconfig flash.type win25x64
+#erase_area 0 0x7ffff 0x10000
+erase
+program 0xa1000000 0 0x70000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+#ddr2_config ./ddr2.txt
+ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+setconfig helpaddr 0xa3000000
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#setconfig usb_ejtag.put_speed 0x400
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf gzrom
+cont
+putelf gzrom
+q
+set
+putelf gzrom
+cont
+set
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+putelf gzrom
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf gzrom
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+set
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc initcall
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc initcall
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc initcall
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc initcall
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc initcall
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf gzrom
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+set
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+set
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+set
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf gzrom
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+putelf gzrom
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+putelf vmlinux 
+karg console=ttyS2,115200 rdinit=/linuxrc
+cont
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
+m4 0xbfd00424 0x0
+echo_on
+echo ls1g+ flash program demo
+
+#maybe need set flash width and speed
+#waitreg 1 0x5a5a5a5a
+#waitfacc
+
+#m4 0xbfe78030 0x8800
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+
+#loop 20 m4 0xbfe78030 0x0a
+#m4 0xbfe78034 0x92292a00
+#m4 0xbfe78034 0x3f00
+#msleep 3000
+
+loop 10 m4 0xbfe78030 0x4
+m4 0xbfe78034 0x9228ce00
+
+
+ddr2_config ./ddr2.txt
+#ddr2_config ./ddr2(16bit).txt
+m4 0xbfd00424 0x110000
+
+
+memtest 0xa0000000 0xa0000100
+put gzrom.bin 0xa1000000
+#put gzrom.bin.ok 0xa1000000
+#setconfig flash.type st25vf080
+setconfig flash.type win25x64
+erase_area 0 0x7ffff 0x10000
+setconfig helpaddr 0xa3000000
+program 0xa1000000 0 0x60000
+q
